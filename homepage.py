@@ -8,12 +8,14 @@ DATA_URL = "https://raw.githubusercontent.com/atyn104/intern/refs/heads/main/pro
 
 @st.cache_data
 def load_data():
+    # Membaca data daripada URL
     df = pd.read_csv(DATA_URL)
     return df
 
-try:
-    data = load_data()
+# 1. Muat data (Guna nama 'df')
+df = load_data()
 
+# 2. Buat pengiraan data dahulu SEBELUM dipaparkan pada kotak summary
 avg_experience = df['years_experience'].mean()
 total_jobs = len(df)
 
@@ -24,7 +26,18 @@ hybrid_val = remote_counts.get('Hybrid', 0)
 
 top_job = df['job_title'].mode()[0]
 
-# --- Displaying summary boxes ---
+
+# 3. Set tajuk dashboard
+st.title("💼 AI & Data Science Job Market Dashboard")
+
+st.markdown("""
+This dataset contains job market information related to Data Science and Artificial Intelligence. It contains information such as job title, experience level, type of work (Remote/Onsite), and required skills such as Python, SQL, etc.
+""")
+
+st.markdown("---")
+
+
+# 4. Paparkan kotak ringkasan (Summary Boxes)
 col1, col2, col3 = st.columns(3)
 
 with col1:
