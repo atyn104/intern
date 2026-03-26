@@ -14,6 +14,16 @@ def load_data():
 try:
     data = load_data()
 
+avg_experience = df['years_experience'].mean()
+total_jobs = len(df)
+
+remote_counts = df['remote_type'].value_counts().to_dict()
+remote_val = remote_counts.get('Remote', 0)
+onsite_val = remote_counts.get('Onsite', 0)
+hybrid_val = remote_counts.get('Hybrid', 0)
+
+top_job = df['job_title'].mode()[0]
+
 # --- Displaying summary boxes ---
 col1, col2, col3 = st.columns(3)
 
