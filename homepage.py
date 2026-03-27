@@ -67,9 +67,9 @@ with col3:
 
 st.markdown("    ")
 st.markdown(f"""
-- Purata pengalaman yang diperlukan dalam industri ini adalah **{avg_experience:.2f} tahun**.
-- Sebanyak **{total_jobs} iklan pekerjaan** direkodkan. Daripada jumlah ini, sebanyak **{remote_val} adalah kerja dari rumah (Remote)**.
-- Pekerjaan yang paling kerap dipasang adalah **{top_job}**.
+- The average experience required in this industry is **{avg_experience:.2f} years**.
+- **{total_jobs} job advertisements** were recorded. Of this total, **{remote_val} are work from home (Remote)**.
+- The most frequently posted job is **{top_job}**.
 """)
 
 # Show raw data preview
