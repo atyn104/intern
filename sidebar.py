@@ -14,7 +14,7 @@ objective3 = st.Page('obj number 3.py', title='Objective 3', icon=":material/ads
 # Semua halaman dalam senarai akan dipaparkan di bawah tajuk 'Menu'
 pg = st.navigation(
         {
-            "Menu": [home, visualise, objective2, objective3]
+            "Menu": [home, objective1, objective2, objective3]
         }
     )
 
