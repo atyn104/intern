@@ -42,9 +42,10 @@ with tab1:
     fig_cm = ff.create_annotated_heatmap(z, x=x_labels, y=y_labels, colorscale='Blues')
     st.plotly_chart(fig_cm, use_container_width=True)
 
-    # B. FEATURE IMPORTANCE
+# B. FEATURE IMPORTANCE
     st.markdown("---")
     st.write("#### 🔑 Main Factors Affecting Urgency (Feature Importance)")
+    
     importance_data = pd.DataFrame({
         'Feature': ['Company Industry', 'Company Size', 'Remote Type', 'Job Title', 'Skills Required'],
         'Importance': [0.35, 0.25, 0.20, 0.15, 0.05]
@@ -52,11 +53,13 @@ with tab1:
 
     fig_fi = px.bar(
         importance_data, 
-        x='Level of Influence (Importance)', 
-        y='Features', 
+        x='Importance', # ✅ Gunakan nama kolum asal DataFrame
+        y='Feature',    # ✅ Gunakan nama kolum asal DataFrame
         orientation='h',
         title="Factors Most Affecting Hiring Urgency",
-        color_discrete_sequence=['#1f77b4']
+        color_discrete_sequence=['#1f77b4'],
+        # 💡 Gunakan 'labels' jika anda mahu ubah teks tajuk paksi pada carta
+        labels={'Importance': 'Level of Influence (Importance)', 'Feature': 'Features'}
     )
     st.plotly_chart(fig_fi, use_container_width=True)
 
