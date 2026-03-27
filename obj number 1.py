@@ -57,7 +57,7 @@ df_heatmap.columns = [col.replace('skills_', '').title() for col in df_heatmap.c
 
 fig2 = px.imshow(
     df_heatmap,
-    labels=dict(x="Kemahiran", y="Jawatan Kerja", color="Bilangan Jobs"),
+    labels=dict(x="Skills", y="Job Title", color="Number of Jobs"),
     x=df_heatmap.columns,
     y=df_heatmap.index,
     color_continuous_scale='Viridis',
@@ -75,7 +75,7 @@ st.subheader("3. Skills Based on Experience Level (Entry vs Mid vs Senior)")
 
 # Guna multiselect filter untuk pengguna pilih tahap pengalaman
 selected_exp = st.multiselect(
-    "Pilih Tahap Pengalaman:", 
+    "Select Experience Level:", 
     options=df['experience_level'].unique(), 
     default=df['experience_level'].unique()
 )
@@ -103,6 +103,6 @@ fig3 = px.bar(
     color='experience_level',
     barmode='group',
     title="Comparison of Skill Requirements by Experience Level",
-    labels={'experience_level': 'Tahap Pengalaman', 'Count': 'Bilangan Iklan Kerja'}
+    labels={'experience_level': 'Experience Level', 'Count': 'Number of Job Advertisements'}
 )
 st.plotly_chart(fig3, use_container_width=True)
